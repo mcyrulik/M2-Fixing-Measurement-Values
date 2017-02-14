@@ -8,6 +8,11 @@
                 <item name="FixingMeasurements" xsi:type="object">Room204\FixingMeasurements\Console\Command\FixMeasurements</item>
             </argument>
         </arguments>
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="AuditMeasurements" xsi:type="object">Room204\FixingMeasurements\Console\Command\AuditMeasurements</item>
+            </argument>
+        </arguments>
     </type>
 
 </config>
