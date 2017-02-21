@@ -13,6 +13,11 @@
                 <item name="AuditMeasurements" xsi:type="object">Room204\FixingMeasurements\Console\Command\AuditMeasurements</item>
             </argument>
         </arguments>
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="UpdateFinalMeasurements" xsi:type="object">Room204\FixingMeasurements\Console\Command\UpdateMeasurementsFinal</item>
+            </argument>
+        </arguments>
     </type>
 
 </config>
