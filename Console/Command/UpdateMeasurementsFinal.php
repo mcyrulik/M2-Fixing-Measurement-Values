@@ -125,16 +125,28 @@ class UpdateMeasurementsFinal extends Command
         foreach ($newArray as $newRow) {
 //        $newRow = $newArray[12342];
 //        $output->writeln(print_r($newRow, true));
-            $product = $this->_productRepository->getById($newRow['entity_id']);
+
+            try {
+                $product = $this->_productRepository->getById($newRow['entity_id']);
+            } catch (\Exception $e) {
+                $product = false;
+            }
+
             if ($product) {
                 $output->write($newRow['entity_id'].":\t");
-                $output->write($newRow['SKU'].":\t");
+                $output->write($newRow['sku'].":\t");
                 foreach ($this->attributeList as $attr) {
                     $output->write("{$attr}: {$newRow[$attr]};\t");
                     $product->setData($attr, $newRow[$attr]);
                 }
                 $output->writeln('');
-                $this->_productRepository->save($product);
+                try {
+                    $this->_productRepository->save($product);
+                } catch (\Exception $e) {
+                    $product = false;
+                }
+
+
                 unset($product);
             }
         }
